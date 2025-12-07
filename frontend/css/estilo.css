@@ -1,0 +1,75 @@
+/*TELAS DE CADASTROS E CSS DAS TABELAS*/
+body{
+    background-color: #f2f2f2;
+    margin-top: 0;
+}
+form{
+    border-collapse: collapse;
+    margin-top: 1%;
+    margin-left: 9%;
+    margin-right: 9%;
+    background-color: #f5ebeb;
+    padding: 50px;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);       
+}
+
+h4{
+    font-family: Monaco;
+    text-align: center;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 0;
+    font-family: "Poppins", sans-serif;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);       
+}
+
+
+tr, td {
+    text-align: center;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+    border-bottom: 1px solid #ddd; 
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+button{
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin: 5px;
+    transition: all 0.3s ease;
+    color: white ;
+}
+
+table a.btn:hover {
+    transform: scale(1.05); 
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    table {
+        width: 100%;
+    }
+}
