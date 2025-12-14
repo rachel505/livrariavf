@@ -1,0 +1,180 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rachel505/livrariavf/blob/main/TRABALHODEPROBABIDADE\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "745R4Y_sIPL_"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Wf5KrEb6vrkR"
+      },
+      "source": [
+        "TRABALHO DE PROBABILIDADE(ANÁLISE DE DEDOS)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "56b6a43d"
+      },
+      "source": [
+        "# Média\n",
+        "mean_bedrooms = df['bedrooms'].mean()\n",
+        "print(f\"Média da coluna 'bedrooms': {mean_bedrooms:.2f}\")\n",
+        "mean_bathrooms = df['bathrooms'].mean()\n",
+        "print(f\"Média da coluna 'bathrooms': {mean_bathrooms:.2f}\")\n",
+        "\n",
+        "# Mediana\n",
+        "median_bedrooms = df['bedrooms'].median()\n",
+        "print(f\"Mediana da coluna 'bedrooms': {median_bedrooms:.2f}\")\n",
+        "median_bathrooms = df['bathrooms'].median()\n",
+        "print(f\"Mediana da coluna 'bathrooms': {median_bathrooms:.2f}\")\n",
+        "\n",
+        "# Variância\n",
+        "variance_bedrooms = df['bedrooms'].var()\n",
+        "print(f\"Variância da coluna 'bedrooms': {variance_bedrooms:.2f}\")\n",
+        "variance_bathrooms = df['bathrooms'].var()\n",
+        "print(f\"Variância da coluna 'bathrooms': {variance_bathrooms:.2f}\")\n",
+        "\n",
+        "# Desvio Padrão\n",
+        "std_dev_bedrooms = df['bedrooms'].std()\n",
+        "print(f\"Desvio Padrão da coluna 'bedrooms': {std_dev_bedrooms:.2f}\")\n",
+        "std_dev_bathrooms = df['bathrooms'].std()\n",
+        "print(f\"Desvio Padrão da coluna 'bathrooms': {std_dev_bathrooms:.2f}\")\n",
+        "\n",
+        "# Quartis da coluna 'bedrooms'\n",
+        "print(f\"Quartis da coluna 'bedrooms':\")\n",
+        "print(df['bedrooms'].quantile([0.25, 0.5, 0.75]))\n",
+        "\n",
+        "# Quartis da coluna 'bathrooms'\n",
+        "print(f\"\\nQuartis da coluna 'bathrooms':\")\n",
+        "print(df['bathrooms'].quantile([0.25, 0.5, 0.75]))\n",
+        "\n",
+        "# Mínimo\n",
+        "print(f\"\\nMínimo da coluna 'bedrooms': {df['bedrooms'].min():.2f}\")\n",
+        "print(f\"Mínimo da coluna 'bathrooms': {df['bathrooms'].min():.2f}\")\n",
+        "\n",
+        "# Máximo\n",
+        "print(f\"\\nMáximo da coluna 'bedrooms': {df['bedrooms'].max():.2f}\")\n",
+        "print(f\"Máximo da coluna 'bathrooms': {df['bathrooms'].max():.2f}\")\n",
+        "\n",
+        "# Assimetria da coluna 'bedrooms'\n",
+        "print(f\"\\nAssimetria da coluna 'bedrooms': {df['bedrooms'].skew():.2f}\")\n",
+        "\n",
+        "# Assimetria da coluna 'bathrooms'\n",
+        "print(f\"Assimetria da coluna 'bathrooms': {df['bathrooms'].skew():.2f}\")\n",
+        "\n",
+        "# Curtose da coluna 'bedrooms'\n",
+        "print(f\"\\nCurtose da coluna 'bedrooms': {df['bedrooms'].kurt():.2f}\")\n",
+        "\n",
+        "# Curtose da coluna 'bathrooms'\n",
+        "print(f\"Curtose da coluna 'bathrooms': {df['bathrooms'].kurt():.2f}\")\n",
+        "\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "plt.figure(figsize=(12, 5))\n",
+        "\n",
+        "plt.subplot(1, 2, 1) # 1 row, 2 columns, first plot\n",
+        "plt.hist(df['bedrooms'], bins=range(int(df['bedrooms'].min()), int(df['bedrooms'].max()) + 2), edgecolor='black')\n",
+        "plt.title('Distribuição de Quartos')\n",
+        "plt.xlabel('Número de Quartos')\n",
+        "plt.ylabel('Frequência')\n",
+        "plt.xticks(range(int(df['bedrooms'].min()), int(df['bedrooms'].max()) + 1))\n",
+        "\n",
+        "plt.subplot(1, 2, 2) # 1 row, 2 columns, second plot\n",
+        "plt.hist(df['bathrooms'], bins=range(int(df['bathrooms'].min()), int(df['bathrooms'].max()) + 2), edgecolor='black')\n",
+        "plt.title('Distribuição de Banheiros')\n",
+        "plt.xlabel('Número de Banheiros')\n",
+        "plt.ylabel('Frequência')\n",
+        "plt.xticks(range(int(df['bathrooms'].min()), int(df['bathrooms'].max()) + 1))\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.show()\n",
+        "\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "\n",
+        "plt.figure(figsize=(12, 5))\n",
+        "\n",
+        "plt.subplot(1, 2, 1) # 1 row, 2 columns, first plot\n",
+        "sns.boxplot(y=df['bedrooms'])\n",
+        "plt.title('Boxplot de Quartos')\n",
+        "plt.ylabel('Número de Quartos')\n",
+        "\n",
+        "plt.subplot(1, 2, 2) # 1 row, 2 columns, second plot\n",
+        "sns.boxplot(y=df['bathrooms'])\n",
+        "plt.title('Boxplot de Banheiros')\n",
+        "plt.ylabel('Número de Banheiros')\n",
+        "\n",
+        "plt.tight_layout()\n",
+        "plt.show()\n",
+        "\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns\n",
+        "\n",
+        "plt.figure(figsize=(10, 6))\n",
+        "sns.scatterplot(x=df['bedrooms'], y=df['bathrooms'])\n",
+        "plt.title('Gráfico de Dispersão de Quartos vs. Banheiros')\n",
+        "plt.xlabel('Número de Quartos')\n",
+        "plt.ylabel('Número de Banheiros')\n",
+        "plt.grid(True, linestyle='--', alpha=0.7)\n",
+        "plt.show()"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "2dc2f4f1"
+      },
+      "source": [],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "3ed55767"
+      },
+      "source": [],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "bd377546"
+      },
+      "source": [],
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
